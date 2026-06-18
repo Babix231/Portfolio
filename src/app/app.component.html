@@ -1,0 +1,185 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-container">
+    <span class="nav-logo">Sabri<span class="accent">.</span></span>
+    <ul class="nav-links">
+      <li><button (click)="scrollTo('about')">À propos</button></li>
+      <li><button (click)="scrollTo('projects')">Projets</button></li>
+      <li><button (click)="scrollTo('skills')">Compétences</button></li>
+      <li><button (click)="scrollTo('contact')">Contact</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero" (mousemove)="onHeroMouseMove($event)">
+  <div class="hero-content">
+    <p class="hero-greeting">Bonjour, je suis</p>
+    <h1 class="hero-name">Sabri Ouadah</h1>
+    <p class="hero-title">Étudiant à <span class="accent">Epitech Nancy</span></p>
+    <p class="hero-description">
+      Passionné par le développement logiciel, la programmation système et l'apprentissage automatique.
+      Je construis des projets ambitieux avec une approche pragmatique.
+    </p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" (click)="scrollTo('projects')">Voir mes projets</button>
+      <a class="btn btn-outline" href="https://github.com/Babix231" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <canvas #heroCanvas class="hero-canvas"></canvas>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="container">
+    <h2 class="section-title">À propos</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Je suis étudiant à <strong>Epitech Nancy</strong>, une école d'informatique réputée pour sa
+          pédagogie par projets. J'apprends en faisant — chaque projet est une nouvelle opportunité de résoudre
+          des problèmes réels.
+        </p>
+        <p>
+          Mes projets couvrent la programmation système en <strong>C/C++</strong>, le développement de jeux,
+          la programmation réseau, et plus récemment le <strong>Machine Learning</strong> avec Python.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Epitech Nancy</span>
+          <span class="tag">Programmation système</span>
+          <span class="tag">Game Dev</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Réseau</span>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Projets publics</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Langages maîtrisés</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Années à Epitech</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number accent">∞</span>
+          <span class="stat-label">Curiosité</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <h2 class="section-title">Projets</h2>
+    <p class="section-subtitle">Mes projets réalisés à Epitech et en dehors</p>
+    <div class="projects-grid">
+      <a
+        *ngFor="let project of projects"
+        class="project-card"
+        [href]="project.url"
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="project-card-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" class="project-icon">
+            <path d="M3 3h6l2 3H21a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+          </svg>
+          <span class="project-name">{{ project.name }}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" class="external-icon">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+        <p class="project-description">{{ project.description }}</p>
+        <div class="project-footer">
+          <span class="lang-dot" [style.background]="project.langColor"></span>
+          <span class="lang-name">{{ project.language }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="projects-more">
+      <a href="https://github.com/Babix231" target="_blank" rel="noopener" class="btn btn-outline">
+        Voir tous les projets sur GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section" id="skills">
+  <div class="container">
+    <h2 class="section-title">Compétences</h2>
+    <p class="section-subtitle">Technologies et outils que j'utilise</p>
+    <div class="skills-list">
+      <div *ngFor="let skill of skills" class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-percent">{{ skill.level }}%</span>
+        </div>
+        <div class="skill-bar">
+          <div
+            class="skill-fill"
+            [style.width.%]="skill.level"
+            [style.background]="skill.color"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">Tu veux discuter d'un projet ou d'une opportunité ?</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:sabri.ouadah@epitech.eu">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <p class="contact-label">Email</p>
+          <p class="contact-value">sabri.ouadah&#64;epitech.eu</p>
+        </div>
+      </a>
+      <a class="contact-card" href="https://github.com/Babix231" target="_blank" rel="noopener">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="contact-label">GitHub</p>
+          <p class="contact-value">github.com/Babix231</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>© {{ currentYear }} Sabri Ouadah — Construit avec <span class="accent">Angular</span></p>
+  </div>
+</footer>
